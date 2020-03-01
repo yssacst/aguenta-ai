@@ -29,7 +29,20 @@ export default class App extends Component {
   render(){
       return (
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!{this.state.data.frase}</Text>
+          <View style={styles.content}>
+
+            <View style={styles.boxFrase}>
+              <Text style={styles.frase}>{this.state.data.frase}</Text>
+            </View>
+            
+            <Text style={styles.subTitulo}>Autor: {this.state.data.autor}   |  Livro: {this.state.data.livro}</Text>
+            
+            <View style={styles.boxCreditos}>
+              <Text style={styles.subTitulo}>•  Desenvolvido por Rayssa Costa</Text>
+              <Text style={styles.subTitulo}>•  API Allugo Frases</Text>
+            </View>
+
+          </View>
         </View>
       );
   }
@@ -38,8 +51,39 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF9C4',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  content: {
+    margin: 20,
+  },
+  boxFrase: {
+    padding: 20,
+    margin: 10,
+    borderRadius: 10,
+    backgroundColor: '#FBC02D',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  boxCreditos: {
+    alignItems: "flex-end",
+    margin:20
+  },
+  frase: {
+    fontSize: 25,
+    color: '#FFFFFF',
+    textAlign: "justify",
+  },
+  subTitulo: {
+    fontSize: 10,
+    color: '#FBC02D',
+    textAlign: "center",
   },
 });
