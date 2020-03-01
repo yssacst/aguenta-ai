@@ -9,10 +9,27 @@ export default class App extends Component {
     }
   }
   
+  UNSAFE_componentWillMount(){
+     this.getPhrasesFromApiAsync();
+  }
+
+  getPhrasesFromApiAsync() {
+    return fetch('https://allugofrases.herokuapp.com/fraseAleatoria')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          data : responseJson
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   render(){
       return (
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
+          <Text>Open up App.js to start working on your app!{this.state.data.frase}</Text>
         </View>
       );
   }
